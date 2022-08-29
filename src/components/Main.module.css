@@ -1,0 +1,41 @@
+.container {
+  font-family: Courier;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.counter_formGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 100%;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100px;
+}
+
+.action {
+  margin-top: 10px;
+}
+
+.content_wrapper--horizontal {
+  display: flex;
+}
+
+.content_wrapper--vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.content_asciiArt {
+  color: black;
+  font-size: 1rem;
+  font-family: Courier;
+  font-weight: 700;
+  text-align: left;
+  margin-right: 6px;
+}
