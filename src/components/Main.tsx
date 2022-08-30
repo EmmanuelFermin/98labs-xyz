@@ -31,7 +31,7 @@ const Main: FC = (props) => {
       // Checks if size is an odd number
       if (enteredSize % 2 === 0 && enteredSize >= 3) {
         setIsOddNumber(false);
-        throw new Error("Not an odd number");
+        throw new Error("Size must be an odd number");
       } else {
         setIsOddNumber(true);
         setIsGenerated(true);
