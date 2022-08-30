@@ -7,6 +7,8 @@ const SelectDirection: FC<ISelectProps> = ({
   onChange,
   value,
 }): JSX.Element => {
+
+  
   return (
     <select name={name} id={id} onChange={onChange} value={value}>
       <option value="" disabled hidden>

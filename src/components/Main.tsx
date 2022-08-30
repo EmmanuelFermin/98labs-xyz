@@ -17,6 +17,7 @@ const Main: FC = (props) => {
   const [asciiArt, setAsciiArt] = useState<string[]>([]);
   const [blockDirection, setBlockDirection] = useState<string>("");
   const [isOddNumber, setIsOddNumber] = useState(false);
+  const [isGenerated, setIsGenerated] = useState(false);
 
   const inputTextRef = useRef<HTMLInputElement>(null);
   const inputSizeRef = useRef<HTMLInputElement>(null);
@@ -33,6 +34,7 @@ const Main: FC = (props) => {
         throw new Error("Not an odd number");
       } else {
         setIsOddNumber(true);
+        setIsGenerated(true);
 
         // Creates Array of Strings that depends on Text Input
         const asciiArtArray = generateArt(enteredText, enteredSize, charStyle);
@@ -53,16 +55,18 @@ const Main: FC = (props) => {
     switch (val) {
       case DirectionType.HORIZONTAL:
         setBlockDirection("horizontal");
+        setIsGenerated(false);
         break;
       case DirectionType.VERTICAL:
         setBlockDirection("vertical");
+        setIsGenerated(false);
         break;
     }
   };
 
   let content: JSXState = <p></p>;
 
-  if (isOddNumber && asciiArt.length > 0 && blockDirection) {
+  if (isOddNumber && asciiArt.length > 0 && blockDirection && isGenerated) {
     content = (
       <div className={classes[`content_wrapper--${blockDirection}`]}>
         {asciiArt.map((el, index) => (
