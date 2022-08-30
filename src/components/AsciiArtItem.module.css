@@ -1,0 +1,9 @@
+.content_asciiArt {
+  color: black;
+  font-size: 1rem;
+  font-family: Courier;
+  font-weight: 700;
+  text-align: left;
+  margin-right: 6px;
+  margin-top: 0;
+}

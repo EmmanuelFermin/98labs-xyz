@@ -1,10 +1,13 @@
 import React, { useState, useRef } from "react";
 import type { FC } from "react";
 import classes from "./Main.module.css";
-import generateArt from "../utils/hof/generateArt";
-import replaceNxtLineWithBr from "../utils/replaceNxtLineWithBr";
+import generateArt from "../utils/nested/generateArt";
 import checkAndThrowError from "../utils/errors";
 import { DirectionType } from "../enums";
+import AsciiArtItem from "./AsciiArtItem";
+import Button from "../ui/Button";
+import Input from "../ui/Input";
+import SelectDirection from "./SelectDirection";
 
 const charStyle = "o";
 
@@ -63,12 +66,7 @@ const Main: FC = (props) => {
     content = (
       <div className={classes[`content_wrapper--${blockDirection}`]}>
         {asciiArt.map((el, index) => (
-          <p
-            key={index}
-            className={classes["content_asciiArt"]}
-            id="ascii-art-text"
-            dangerouslySetInnerHTML={{ __html: replaceNxtLineWithBr(el) }}
-          />
+          <AsciiArtItem key={index} str={el} />
         ))}
       </div>
     );
@@ -79,36 +77,32 @@ const Main: FC = (props) => {
       <h1>Text to ASCII art-like</h1>
       <section className={classes.counter_formGroup}>
         <div className={classes.control}>
-          <label>Letters</label>
-          <input type="text" id="users-input" ref={inputTextRef} />
+          <label htmlFor="users-input">Letters</label>
+          <Input type="text" id="users-input" innerRef={inputTextRef} />
         </div>
 
         <div className={classes.control}>
-          <label>Size</label>
-          <input type="number" id="users-size" ref={inputSizeRef} />
+          <label htmlFor="users-size">Size</label>
+          <Input type="number" id="users-size" innerRef={inputSizeRef} />
         </div>
 
         <div className={classes.control}>
-          <label>Direction</label>
-          <select
-            name="direction"
+          <label htmlFor="users-size">Direction</label>
+          <SelectDirection
             id="users-direction"
+            name="direction"
             onChange={handleDirection}
             value={blockDirection}
-          >
-            <option value="" disabled hidden>
-              Choose here
-            </option>
-            <option value="horizontal">horizontal</option>
-            <option value="vertical">vertical</option>
-          </select>
+          />
         </div>
       </section>
 
       <section className={classes.action}>
-        <button id="enter" onClick={handleGenerateArt}>
-          Generate ASCII Art
-        </button>
+        <Button
+          id="enter"
+          onClick={handleGenerateArt}
+          title="Generate ASCII Art"
+        />
       </section>
 
       <p>Display Here 👇</p>
