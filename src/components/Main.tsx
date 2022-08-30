@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import type { FC } from "react";
 import classes from "./Main.module.css";
-import generateArt from "../utils/nested/generateArt";
-import checkAndThrowError from "../utils/errors";
+import generateArt from "../utils/generateArt";
+import checkAndThrowError from "../utils/checkAndThrowError";
 import { DirectionType } from "../enums";
 import AsciiArtItem from "./AsciiArtItem";
 import Button from "../ui/Button";

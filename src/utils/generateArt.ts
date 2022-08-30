@@ -1,6 +1,6 @@
-import createX from "../createX";
-import createY from "../createY";
-import createZ from "../createZ";
+import createX from "./nested/createX";
+import createY from "./nested/createY";
+import createZ from "./nested/createZ";
 
 const generateArt = (
   textToTransform: string,
