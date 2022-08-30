@@ -1,0 +1,16 @@
+.btn {
+  font-family: Courier;
+  color: rgb(26, 26, 26);
+  border-width: 1px;
+  border-radius: 3px;
+  background-color: rgb(221, 220, 147);
+  padding: 3px 10px;
+}
+
+.btn:hover {
+  background-color: rgb(184, 183, 120);
+}
+
+.btn:active {
+  background-color: rgb(221, 220, 147);
+}
